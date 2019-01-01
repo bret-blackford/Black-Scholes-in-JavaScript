@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Black-Scholes option model in JavaScript">
+    <meta name="keywords" content="blackford,bret,mBret,michael,javascript,black, scholes, Black-scholes blackford, valuation, harvard">
+
+    <script src="http://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+
+    <script src="http://cdn.rawgit.com/rainabba/jquery-table2excel/1.1.0/dist/jquery.table2excel.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+    <script src="js/bs.js"></script>
+    <script src="js/bsFx.js"></script>
+    <link rel="stylesheet" href="css/bs.css" />
+
+    <title>Black-Scholes in Javascript</title>
+</head>
+
+<body id="whatIf">
+
+    <header class="headr" id="myHeader">
+        <h1> JavaScript Black-Scholes : What-If Analysis </h1>
+    </header>
+
+    <nav id="navigation">
+        <ul>
+            <li id="nav-background"><a href="bs.html" id="background" class="nav">Background</a></li>
+            <li id="nav-valuations"><a href="BlackScholes.html" id="valuations" class="nav">Valuation Engine</a></li>
+            <li id="nav-whatIf"><a href="bsWhatIf.html" id="whatif" class="nav">What-If Valuation</a></li>
+        </ul>
+    </nav>
+
+    <article>
+        <p>Process will run a valuation for multiple underlying stock price and volatility based on a multiplier (from .75 to 1.25 of underlying stock price and volatility). Results are presented in the table and charts below. </p>
+
+        <form>
+            <label for="stkPrice">Stock Price : S</label><input type="number" id="stkPrice" placeholder="$12.50"> USD<br />
+            <label for="strikePrice">Strike price : X</label><input type="number" id="strikePrice" placeholder="$12.00"> USD<br />
+
+            <label for="exp_date">expiration date : T1</label><input type="date" id="exp_date"><br />
+            <label for="val_date">valuation date : T2</label><input type="date" id="val_date"><br />
+            <label for="interst">Risk-free Rate : r</label><input type="number" id="interst" placeholder=".012"><br />
+            <label for="vol">Volatility : v</label><input type="number" id="vol" placeholder=".1425"><br />
+
+            <label for="pcFlag">Option Type : p/c</label>
+            <select name="putCallFlag" id="pcFlag">
+                <option value="PUT">PUT</option>
+                <option value="CALL">CALL</option>
+            </select><br />
+            <label for="notes">add notes here : </label><input type="text" id="notes" placeholder=" trade 1234"> optional <br />
+
+            <br />
+
+            <input type="button" value="Run valuation" id="btn" class="btn">
+            <button type="reset" value="reset" class="btn">Reset Data</button>
+        </form>
+
+        <br />
+
+        <!--p id="display">you entered:</p-->
+        <fieldset>
+            <legend> = RESPONSE DATA =</legend>
+            <div id="rsp-area">
+                <span id="rsp_id" class="rsp_">Valuation :</span>
+                <span id="val_div_id">valuation result</span> USD
+
+                <br />
+                <span id="rsp_id2" class="rsp_">delta ....... :</span>
+                <span id="delta_div_id">valuation result</span>
+            </div>
+        </fieldset>
+    </article>
+
+    <table id="valuationTable">
+        <thead>
+            <tr>
+                <th>S</th>
+                <th>X</th>
+                <th>T1</th>
+                <th>T2</th>
+                <th>T</th>
+                <th>r</th>
+                <th>v</th>
+                <th>p/c</th>
+                <th>valuation</th>
+                <th>delta</th>
+                <th>% change</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--tr>
+                <td><input type="checkbox" name="record"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr-->
+        </tbody>
+    </table>
+
+    <div class="table-btn">
+        <button type="button" class="exportTable" id="toEXcel">Excel</button>
+    </div>
+
+
+
+    <div id="chart-area">
+        <p>Chart displays fair value based on changes in underlying stock price</p>
+        <canvas id="myChart1"></canvas><br />
+
+        <p>Chart displays fair value based on changes in volatility</p>
+        <canvas id="myChart2"></canvas><br />
+
+        <p>Chart displays fair value based on changes in underlying stock price and volatility</p>
+        <canvas id="myChart3"></canvas><br />
+    </div>
+
+    <script>
+        document.getElementById("btn").addEventListener("click", process2);
+        document.getElementById("toEXcel").addEventListener("click", printToExcel);
+    </script>
+
+
+    <footer>
+       <hr />
+        <small>&copy; Copyright 2018, m Bret Blackford (Dec. 11, 2018)</small>
+    </footer>
+    <br />
+
+
+</body>
+
+</html>

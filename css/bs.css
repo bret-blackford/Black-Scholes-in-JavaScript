@@ -1,0 +1,199 @@
+body {
+    background-color: lightgoldenrodyellow;
+    margin-left: 2em;
+}
+
+form {
+    float :left;
+    clear: left;
+}
+
+h1 {
+    background-color: black;
+    color: white;
+    padding: 1rem;
+    margin: 0;
+}
+
+.content {
+    float:left;
+    clear: left;
+}
+
+
+header {
+    margin-bottom: 1em;
+}
+
+label {
+    display: inline-block;
+    width: 130px;
+    text-align: right;
+    padding-right: 3px;
+}
+
+
+
+.nav {
+    padding: 1px;
+    margin: 3px;
+    margin-bottom: 1em;
+    border-style: solid;
+    background-color: black;
+    border-color: gray;
+    color:white;
+    float: left;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+nav ul {list-style: none; padding: 0;}
+nav ul li a {display: block;text-decoration: none; padding: 0.5em 0 0.5em 1em; border: thin solid navy; font-weight: bold;}
+nav ul li a:link {display: block;}
+nav ul li a:visited {display: block;}
+nav ul li#iamhere a:visited,
+nav ul li#iamhere a:hover { color: black; background-color: #ffffff; border: thin solid navy;}
+
+a:hover {
+    border-color: black;
+    color: yellow;
+}
+
+#val_div_id,
+#delta_div_id {
+    background-color: white;
+    width: 20px;
+    font-size: 1em;
+}
+
+.greek {
+    font-weight: bold;
+}
+
+#rsp-area {
+    align-content: center;
+}
+
+.rsp_ {
+    text-align: right;
+    width: 150px;
+}
+
+form input {
+    width: 140px;
+    box-sizing: border-box;
+    text-align: right;
+}
+
+input:focus {
+    border-color: red;
+}
+
+input:hover {
+    background-color: lightgreen;
+}
+
+button:hover {
+    background-color: lightpink;
+}
+
+.radio_c {
+    vertical-align: middle;
+    color: red;
+    background-color: greenyellow;
+}
+
+#link {
+    width: 260px;
+    border-color: red;
+}
+
+fieldset {
+    width: 240px;
+    margin-left: 5%;
+    background-color: lightgray;
+    border-color: red;
+}
+
+legend {
+    font-weight: bold;
+}
+
+fieldset:hover {
+    background-color: lightgreen;
+}
+
+
+/*below CSS to allow header to freeze*/
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%
+}
+
+table {
+    margin-bottom: 20px;
+    border-collapse: collapse;
+    border-color: gold;
+    float:left;
+    clear: left;
+}
+
+th,
+td {
+    border: 1px;
+    border-color: black;
+    border-style: solid;
+    font-size: 1em;
+}
+th {
+    background-color: azure;
+}
+td {
+    background-color:whitesmoke;
+}
+
+.table-btn {
+    float:left;
+    clear:left;
+}
+
+article {
+    float:left;
+    clear:left;
+}
+
+table th,
+table td {
+    padding-left: 10px;
+    padding-right: 5px;
+    padding-top: 5px;
+    text-align: right;
+}
+
+#valuationTable {
+   padding-top: 5px;
+    margin-top: 5px;
+}
+
+.btn {
+    margin: 3px; 
+    margin-bottom: 1em;
+}
+
+footer {
+    clear: left;
+    float: left;
+}
+
+canvas {  
+   width: 80%;
+   height: 400px;
+}
+
+#chart-area {
+    width: 80%;
+    float:left;
+    clear: left;
+}
